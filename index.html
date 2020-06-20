@@ -18,9 +18,18 @@
         <div class="content">
             <div class="form">
                 <label for="userInput">Your Choice</label>
-                <input type="text" id="userInput" name="userInput" value='' placeholder="e.g. Rock / Paper / Scissors">
+                <!-- <input type="text" id="userInput" name="userInput" value='' placeholder="e.g. Rock / Paper / Scissors"> -->
+                <select name="userInput" id="userInput">
+                    <option value="rock">Rock</option>
+                    <option value="paper">Paper</option>
+                    <option value="scissors">Scissors</option>
+                    <option value="bomb">Bomb</option>
+                </select>
                 <input type="submit" value="Play" onClick='playGame();'> 
-                
+                <div class="scores">
+                    <h3 id="score-board">Computer Score 0 : 0 User Score </h3>
+                </div>
+                <hr>
                 <div id="answer"></div>
             </div>
         </div>
