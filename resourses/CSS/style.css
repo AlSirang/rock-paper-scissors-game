@@ -166,6 +166,7 @@ hr{
         width: 50%;
         min-width: 100px;
     }
+   
     
     .form input[type='submit']{
         width: 40%;
@@ -176,7 +177,7 @@ hr{
         min-width: 270px;
     }
 
-    #answer{
+    #answer, .from h3{
         font-size: 13px;
     }
 
