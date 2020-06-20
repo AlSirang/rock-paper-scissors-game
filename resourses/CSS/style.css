@@ -154,7 +154,7 @@ hr{
 /*media queries*/
 
 
-@media(max-width:800px){
+@media (min-width:461px) and (max-width:800px){
     .header{
         min-width: 270px;
     }
@@ -163,7 +163,7 @@ hr{
         min-width: 250px;
     }
     .form select{
-        width: 70%;
+        width: 50%;
         min-width: 100px;
     }
    
@@ -176,10 +176,20 @@ hr{
     .footer{
         min-width: 270px;
     }
-
+    
     #answer,#score-board{
         font-size: 13px;
-        width: 100%;
     }
 
+}
+
+
+@media (max-width:459px){
+    .form select{
+        width: 70%;
+    }
+    #answer,#score-board{
+        font-size: 0.75rem;
+        width: 90%;
+    }
 }
