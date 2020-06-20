@@ -1,7 +1,11 @@
+
+let userScore = 0;
+let compScore = 0;
+
 // get user choice
 const getUserChoice = userInput => {
   userInput = userInput.toLowerCase();
-  if(userInput==='rock' || userInput==='paper' ||userInput==='scissors'){
+  if(userInput==='rock' || userInput==='paper' ||userInput==='scissors' || userInput==='bomb'){
     return userInput;
   }else{
     return 0;
@@ -26,6 +30,11 @@ const getComputerChoice =()=>{
 
 // determine the winner between user and computer
 const determineWinner = (userChoice, computerChoice)=>{
+  //cheat code bomb, by typing it  user will always win
+  if(userChoice==='bomb')
+  {
+    return 'You won';
+  }
   // check if game is tie
   if(userChoice === computerChoice){
     return 'tie';
@@ -56,13 +65,33 @@ const determineWinner = (userChoice, computerChoice)=>{
   }
 };
 
+//update score
+const updateScore =winner=>{
+  if(winner==='You won'){
+    userScore +=1;
+  }else if(winner==='Computer won'){
+    compScore +=1;
+  }
+};
+
 // read user choice from  HTML input Element
 const getRawInput=()=>document.getElementById('userInput').value;
 
 // display winner to HTML
 const displayWinnerAndAnswers= (winner, userChoice, computerChoice) =>{
-  document.getElementById("answer").innerHTML = `<hr>
-                                                 <h2 id='winner'>Game Results: ${winner}</h2>
+  let id;
+  if(winner==='tie'){
+    id='tie';
+  }
+  else if(winner==='Computer won'){
+    id='compWon';
+  }
+  else{
+    id='user';
+  }
+  document.getElementById('score-board').innerHTML=`Computer Score ${compScore} : ${userScore} User Score `;
+
+  document.getElementById("answer").innerHTML = `<h2 id='${id}'>Game Results: ${winner}</h2>
                                                   <h3>Your Choice: ${userChoice}</h3> 
                                                   <h3>Computer's Choice: ${computerChoice}</h3>`;
 };
@@ -81,6 +110,7 @@ const playGame=()=>{
   else{
     let computerChoice = getComputerChoice();
     let winner =determineWinner(userChoice, computerChoice);
+    updateScore(winner);
     //display final resutls
     displayWinnerAndAnswers(winner, userChoice, computerChoice);
   } 
