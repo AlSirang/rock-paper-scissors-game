@@ -42,26 +42,13 @@ const determineWinner = (userChoice, computerChoice)=>{
 
   // checking for Winner
   //first possible outcome
-  if(userChoice === 'rock'){
-    if(computerChoice === 'paper'){
-      return 'Computer won';
-    }else{
-      return 'You won';
-    }
-  }// possible outcome 
-  else if(userChoice === 'paper'){
-    if(computerChoice === 'scissors'){
-      return 'Computer won';
-    }else{
-      return 'You won';
-    }
-  }//third possible outcome 
-  else if(userChoice === 'scissors'){
-     if(computerChoice === 'rock'){
-      return 'Computer won';
-    }else{
-      return 'You won';
-    }
+  if((userChoice === 'rock' && computerChoice === 'scissors') ||
+	(userChoice === 'paper' && computerChoice === 'rock')||
+	(userChoice === 'scissors' && computerChoice === 'paper') ){
+	return 'You won';
+
+  }else{
+  	return 'Computer won';
   }
 };
 
